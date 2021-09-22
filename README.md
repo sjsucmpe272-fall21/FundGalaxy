@@ -11,10 +11,10 @@
    With change comes challenges. We want to leverage the enormous capabilities of technology to make VC/Angel/Crowdfunding accessible and ease the process of Funding for            everyone. We want to create a one-stop solution where various organizations and the potential investors can interact with each other throughout the entire process right          from pitching in the ideas to finalizing the deal. 
    
    We are planning on having a number of features for this platform which include:
-       * Ability for the organizations to reach out to the investors and vice versa via a ‘Search’ and a ‘Smart Search’ functionality. What we mean by ‘Smart Search’ is that              either of the users will answer a responsive questionnaire about their preferences and what they’re looking for, including the rough estimates for the figures and                things like that, and they will be smartly matched with a list of companies/investors.
-       * Ability to fix meetings, upload documentation, review paperwork, etc.
-       * A notification system wherein the other party will be notified of an action via email and text message.
-       * We can also plan to have an e-learning module wherein organizations can subscribe to various courses/ tips and tricks etc for making a pitch, ROI documents, etc. The e-            learning modules can be in the form of PDFs, documents or video tutorials.
+   * Ability for the organizations to reach out to the investors and vice versa via a ‘Search’ and a ‘Smart Search’ functionality. What we mean by ‘Smart Search’ is that              either of the users will answer a responsive questionnaire about their preferences and what they’re looking for, including the rough estimates for the figures and                things like that, and they will be smartly matched with a list of companies/investors.
+   * Ability to fix meetings, upload documentation, review paperwork, etc.
+   * A notification system wherein the other party will be notified of an action via email and text message.
+   * We can also plan to have an e-learning module wherein organizations can subscribe to various courses/ tips and tricks etc for making a pitch, ROI documents, etc. The e-          learning modules can be in the form of PDFs, documents or video tutorials.
    
 ## Approach
    
@@ -33,10 +33,8 @@
 ## Persona
    
    This application will primarily have 2 personas:
-       1) Organizations 
-           Major responsibilities include reaching out to investors, uploading documents, pitches, subscribing to tutorials, etc
-       2) Investors
-           Major responsibilities include connecting with organizations, reviewing documents, uploading paperwork, etc
+   1) Organizations: Major responsibilities include reaching out to investors, uploading documents, pitches, subscribing to tutorials, etc
+   2) Investors: Major responsibilities include connecting with organizations, reviewing documents, uploading paperwork, etc
            
 ## Dataset links
   
@@ -64,9 +62,9 @@
 ## Persona 
 
    For the sake of the project, personas would be limited to three, namely:
-     1) Shipment receiver: This person would receive the shipment of vaccines which would arrive by ship or aeroplane or freight carrier.
-     2) Delivery agent: This person would transport the vaccine via road/air/frieght to the intended pharmacy/retail store.
-     3) Pharmacist: This person would inject the vaccine into an unvaccinated person. Thereby ending the chain.
+   1) Shipment receiver: This person would receive the shipment of vaccines which would arrive by ship or aeroplane or freight carrier.
+   2) Delivery agent: This person would transport the vaccine via road/air/frieght to the intended pharmacy/retail store.
+   3) Pharmacist: This person would inject the vaccine into an unvaccinated person. Thereby ending the chain.
      
 ## Dataset links
   
@@ -77,7 +75,7 @@
 
 ## Introduction to the problem statement
    
-   Build a used car trading platform to simplify the trading process. By leveraging the historical data, we can build a regression model for car price prediction, the user can      get a quote in real-time.
+   Building a used car trading platform to simplify the trading process. By leveraging the historical data, we can build a regression model for car price prediction with which      users can get a quote in real-time.
    
 ## Abstract (rough draft)
 
@@ -92,8 +90,8 @@
    Registration System: Users can register an account so the user can add some car to the collections, or post their own car and check the status anytime.
    
    Notification System: We can leverage the email push API (e.g. Gmail API) to notify users when
-                          * cars they are interested in have price changes or are sold out. 
-                          * other customers expressed interest in the car they posted.
+   * cars they are interested in have price changes or are sold out. 
+   * other userss expressed interest in the car they posted.
                          
    Blob Storage: We need to store many car images, so we can integrate the backend with AWS S3 for all blobs storage.
    
@@ -105,11 +103,9 @@
    
 ## Persona
   
-   1) Car Buyers
-      People don’t have to visit the dealer to find a car, especially during a pandemic. Buying a car online is a really cool idea.
+   1) Car Buyers: People don’t have to visit the dealer to find a car, especially during a pandemic. Buying a car online is a really cool idea.
       
-   2) Car Sellers
-      I found many sellers don’t have a good estimation of their car prices, with this website, the machine learning model will predict a reasonable price range for a car. This       will be fair to both buyers and sellers.
+   2) Students: I found many students don’t have a good estimation of the car prices, with this website, the machine learning model will predict a reasonable price range for           a car. This will be fair to both buyers and sellers.
       
 ## Dataset links
 
