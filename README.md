@@ -11,6 +11,7 @@
    With change comes challenges. We want to leverage the enormous capabilities of technology to make VC/Angel/Crowdfunding accessible and ease the process of Funding for            everyone. We want to create a one-stop solution where various organizations and the potential investors can interact with each other throughout the entire process right          from pitching in the ideas to finalizing the deal. 
    
    We are planning on having a number of features for this platform which include:
+   
    * Ability for the organizations to reach out to the investors and vice versa via a ‘Search’ and a ‘Smart Search’ functionality. What we mean by ‘Smart Search’ is that              either of the users will answer a responsive questionnaire about their preferences and what they’re looking for, including the rough estimates for the figures and                things like that, and they will be smartly matched with a list of companies/investors.
    * Ability to fix meetings, upload documentation, review paperwork, etc.
    * A notification system wherein the other party will be notified of an action via email and text message.
@@ -62,6 +63,7 @@
 ## Persona 
 
    For the sake of the project, personas would be limited to three, namely:
+   
    1) Shipment receiver: This person would receive the shipment of vaccines which would arrive by ship or aeroplane or freight carrier.
    2) Delivery agent: This person would transport the vaccine via road/air/frieght to the intended pharmacy/retail store.
    3) Pharmacist: This person would inject the vaccine into an unvaccinated person. Thereby ending the chain.
@@ -90,6 +92,7 @@
    Registration System: Users can register an account so the user can add some car to the collections, or post their own car and check the status anytime.
    
    Notification System: We can leverage the email push API (e.g. Gmail API) to notify users when
+   
    * cars they are interested in have price changes or are sold out. 
    * other userss expressed interest in the car they posted.
                          
