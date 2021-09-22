@@ -34,7 +34,9 @@
 ## Persona
    
    This application will primarily have 2 personas:
+   
    1) Organizations: Major responsibilities include reaching out to investors, uploading documents, pitches, subscribing to tutorials, etc
+   
    2) Investors: Major responsibilities include connecting with organizations, reviewing documents, uploading paperwork, etc
            
 ## Dataset links
@@ -65,7 +67,9 @@
    For the sake of the project, personas would be limited to three, namely:
    
    1) Shipment receiver: This person would receive the shipment of vaccines which would arrive by ship or aeroplane or freight carrier.
+    
    2) Delivery agent: This person would transport the vaccine via road/air/frieght to the intended pharmacy/retail store.
+   
    3) Pharmacist: This person would inject the vaccine into an unvaccinated person. Thereby ending the chain.
      
 ## Dataset links
