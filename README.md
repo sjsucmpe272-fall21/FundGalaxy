@@ -1,1 +1,2 @@
-# Team-Project-6
+# Team 6 Project Ideas:
+
