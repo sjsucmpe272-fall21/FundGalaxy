@@ -4,6 +4,8 @@ const router = express.Router();
 // Import Mongo Models
 const Companies = require("../models/CompaniesModel");
 const Investors = require("../models/InvestorsModel");
+const Investments = require("../models/InvestmentsModel");
+
 
 // Get Company Details by ID
 router.get("/company/details/:companyid", async (req, res, next) => {
@@ -82,7 +84,6 @@ router.put("/updateInvestorDetails/:investorid", async (req, res, next) => {
   Investors.findOneAndUpdate(
     { _id: req.params.investorid },
     {
-      companiesInvestedIn: req.body.companiesInvestedIn,
       contact: req.body.contact,
       description: req.body.description,
       investmentDomains: req.body.investmentDomains,
@@ -186,7 +187,6 @@ router.post("/addInvestorDetails", async (req, res, next) => {
   console.log(`Add investor ${req.body.name}`);
   Investors.create(
     {
-      companiesInvestedIn: req.body.companiesInvestedIn,
       contact: req.body.contact,
       description: req.body.description,
       investmentDomains: req.body.investmentDomains,
@@ -213,21 +213,40 @@ router.post("/addInvestorDetails", async (req, res, next) => {
 });
 
 // Invest a company
-router.put("/investCompany/:investorid", async (req, res, next) => {
+router.post("/investCompany", async (req, res, next) => {
+
+
   Companies.findById(
-    { _id: req.body.companiesInvestedIn.companyid },
+    { _id: req.body.companyid },
     (err, company) => {
       if (!err) {
-        Investors.findOneAndUpdate(
-          { _id: req.params.investorid },
-          { $push: { companiesInvestedIn: req.body.companiesInvestedIn } },
-          { new: true },
-          (err, doc) => {
+        Investors.findById(
+          { _id: req.body.investorid },
+          (err, investor) => {
             if (!err) {
-              res.writeHead(200, {
-                "Content-Type": "application/json",
-              });
-              res.end(JSON.stringify(doc));
+              console.log(`${req.body.investorid} invests ${req.body.companyid}`);
+              Investments.create(
+                {
+                  companyid: req.body.companyid,
+                  investorid: req.body.investorid,
+                  name: req.body.name,
+                  stage: req.body.stage,
+                  funding: req.body.funding,
+                },
+                (err, investment) => {
+                  if (!err) {
+                    res.writeHead(200, {
+                      "Content-Type": "application/json",
+                    });
+                    res.end(JSON.stringify(investment));
+                  } else {
+                    res.writeHead(500, {
+                      "Content-Type": "text/plain",
+                    });
+                    res.end(`Interal Error: ${err}`);
+                  }
+                }
+              );
             } else {
               res.writeHead(404, {
                 "Content-Type": "text/plain",
@@ -248,20 +267,42 @@ router.put("/investCompany/:investorid", async (req, res, next) => {
 // List all invested companies of an investor.
 router.get("/investor/invested_companies/:investorid", async (req, res, next) => {
   console.log(`Get invested companies of ${req.params.investorid}`)
-  Investors.findOne(
-    { _id: req.params.investorid }, 
-    (error, investor) => {
+  Investments.find(
+    { investorid: req.params.investorid }, 
+    (error, investments) => {
     if (error) {
       res.writeHead(404, {
         "Content-Type": "text/plain",
       });
-      res.end("Investor not found.");
+      res.end("Investment not found.");
     } else {
       res.writeHead(200, {
         "Content-Type": "application/json",
       });
-      console.log(`response:\n ${investor.companiesInvestedIn}`);
-      res.end(JSON.stringify(investor.companiesInvestedIn));
+      company_list = investments.map(e => e.companyid);
+      res.end(JSON.stringify(company_list));
+    }
+  });
+});
+
+// List all investors of a company.
+router.get("/investor/:companyid", async (req, res, next) => {
+  console.log(`Get investors of ${req.params.companyid}`);
+  Investments.find(
+    { companyid: req.params.companyid }, 
+    (error, investments) => {
+    if (error) {
+      res.writeHead(404, {
+        "Content-Type": "text/plain",
+      });
+      res.end("Investment not found.");
+    } else {
+      res.writeHead(200, {
+        "Content-Type": "application/json",
+      });
+      console.log(investments);
+      investor_list = investments.map(e => e.investorid);
+      res.end(JSON.stringify(investor_list));
     }
   });
 });

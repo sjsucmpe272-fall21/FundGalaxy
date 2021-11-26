@@ -19,6 +19,10 @@ var companiesSchema = new Schema(
     people: { type: Array },
     revenueRange: { type: String },
     totalFundingUsd: { type: String },
+    investors:  [{
+      investorid: {type: String},
+      name: { type: String },
+    }],
   },
   {
     versionKey: false,
