@@ -143,7 +143,7 @@ router.get("/investors/all", async (req, res, next) => {
 });
 
 
-// Update Company Details
+// Add Company Details
 router.post("/addCompanyDetails", async (req, res, next) => {
   console.log(`Add new company ${req.body.name}`);
   Companies.create(
@@ -164,7 +164,6 @@ router.post("/addCompanyDetails", async (req, res, next) => {
       revenueRange: req.body.revenueRange,
       totalFundingUsd: req.body.totalFundingUsd,
     },
-    // { new: true },
     (err, doc) => {
       if (!err) {
         res.writeHead(200, {
@@ -246,6 +245,7 @@ router.put("/investCompany/:investorid", async (req, res, next) => {
     });
 });
 
+// List all invested companies of an investor.
 router.get("/investor/invested_companies/:investorid", async (req, res, next) => {
   console.log(`Get invested companies of ${req.params.investorid}`)
   Investors.findOne(
@@ -265,9 +265,6 @@ router.get("/investor/invested_companies/:investorid", async (req, res, next) =>
     }
   });
 });
-
-
-
 
 
 module.exports = router;
