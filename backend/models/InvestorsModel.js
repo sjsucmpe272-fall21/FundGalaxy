@@ -1,9 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
+
 var investorsSchema = new Schema(
   {
-    companiesInvestedIn: { type: Array },
+    // companiesInvestedIn:  [{
+    //   companyid: {type: String},
+    //   name: { type: String },
+    //   stage: { type: String },
+    //   funding: { type: String },
+    // }],
     contact: { type: Object },
     description: { type: String },
     investmentDomains: { type: Array },
