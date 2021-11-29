@@ -1,11 +1,138 @@
 const express = require("express");
-const router = express.Router();
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
 
+const router = express.Router();
+const secret = 'mysecretsshhh';
 // Import Mongo Models
 const Companies = require("../models/CompaniesModel");
 const Investors = require("../models/InvestorsModel");
 const Investments = require("../models/InvestmentsModel");
 
+
+//authenticate user with login & password.
+router.post('/api/authenticate', function (req, res) {
+  const { usertype, email, password } = req.body;
+  if (usertype.toLowerCase() === "company") { var entity = Companies; }
+  else if (usertype.toLowerCase() === "investor") { var entity = Investors; }
+  else { res.status(500).send("Entity type not specified."); }
+  console.log(usertype);
+  console.log(email);
+  console.log(password);
+  entity.findOne({ contact: { email } }, function (err, entity) {
+    console.log(entity);
+    if (err) {
+      console.error(err);
+      res.status(500)
+        .json({
+          error: 'Internal error please try again'
+        });
+    } else if (!entity) {
+      res.status(401)
+        .json({
+          error: 'Incorrect email or password'
+        });
+    } else {
+      entity.isCorrectPassword(password, function (err, same) {
+        if (err) {
+          res.status(500)
+            .json({
+              error: 'Internal error please try again'
+            });
+        } else if (!same) {
+          res.status(401)
+            .json({
+              error: 'Incorrect email or password'
+            });
+        } else {
+          // Issue token
+          const payload = { email };
+          const token = jwt.sign(payload, secret, {
+            expiresIn: '1h'
+          });
+          res.cookie('token', token, { httpOnly: true })
+            .sendStatus(200);
+        }
+      });
+    }
+  });
+});
+
+router.post('/api/register', function (req, res) {
+  const { usertype } = req.body;
+  if (usertype.toLowerCase() === "company") {
+    const { domain,
+      status,
+      categoryList,
+      email, phone, countryCode, stateCode, city, address,
+      description,
+      employeeCount,
+      foundedOn,
+      founders,
+      homepageUrl,
+      links,
+      name,
+      numFundingRounds,
+      password,
+      people,
+      revenueRange,
+      totalFundingUsd } = req.body;
+
+    var entity = new Companies({
+      domain,
+      status,
+      categoryList,
+      contact: { email, phone, countryCode, stateCode, city, address },
+      description,
+      employeeCount,
+      foundedOn,
+      founders,
+      homepageUrl,
+      links,
+      name,
+      numFundingRounds,
+      password,
+      people,
+      revenueRange,
+      totalFundingUsd
+    });
+  }
+  else if (usertype.toLowerCase() === "investor") {
+    const { companiesInvestedIn, companyName, funding, stage,
+      telphone, address, email,
+      description,
+      investmentDomains,
+      investorType,
+      links,
+      name,
+      password,
+      totalFunding } = req.body;
+    console.log(companiesInvestedIn);
+    var entity = new Investors({
+      companiesInvestedIn: [{ companyName, funding, stage }],
+      contact: { telphone, address, email },
+      description,
+      investmentDomains,
+      investorType,
+      links,
+      name,
+      password,
+      totalFunding
+    });
+  }
+  else {
+    res.status(500).send("Entity type not specified.");
+  }
+  console.log(entity);
+  //TODO: check if enity with email already present
+  entity.save(function (err) {
+    if (err) {
+      res.status(500).send("Error registering new entity please try again.");
+    } else {
+      res.status(200).send("Entity registered");
+    }
+  });
+});
 
 // Get Company Details by ID
 router.get("/company/details/:companyid", async (req, res, next) => {
