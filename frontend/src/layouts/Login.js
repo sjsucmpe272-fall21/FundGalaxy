@@ -69,8 +69,8 @@ export default function Login() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: "url(https://source.unsplash.com/random)",
-            backgroundRepeat: "no-repeat",
+            backgroundImage:
+              "url(https://learn.g2.com/hubfs/business%20funding.jpg)",
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
