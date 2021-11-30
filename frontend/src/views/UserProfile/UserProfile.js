@@ -4,7 +4,6 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -46,10 +45,9 @@ const UserProfile = () => {
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
               <p className={classes.cardCategoryWhite}>Complete your profile</p>
             </CardHeader>
-            <CardBody></CardBody>
-            <div style={{ textAlign: "right", padding: "15px" }}>
-              <Button color="primary">Update Profile</Button>
-            </div>
+            <CardBody style={{ textAlign: "center" }}>
+              <img src="https://lh3.googleusercontent.com/proxy/XSacVU28X7VkRgsJ6zX5bSmydpZSwZ-1INBxWe68WyYCk1zOei73LbfAKWxVARiw9zZW8bpNM7WYWhwbuBdRIJXJdxkxEADs_jRQCe3Ii1n2PbS7dLbRlIBUuLVcoKVYtA" />
+            </CardBody>
           </Card>
         </GridItem>
       </GridContainer>
