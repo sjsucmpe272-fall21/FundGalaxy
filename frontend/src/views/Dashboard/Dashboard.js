@@ -35,6 +35,11 @@ export default function Dashboard() {
   }, []);
 
   let dollarUSLocale = Intl.NumberFormat("en-US");
+
+  !JSON.parse(localStorage.getItem("user"))
+    ? (window.location.href = "/login")
+    : null;
+
   return (
     <div>
       <div style={{ border: "1px solid" }}>

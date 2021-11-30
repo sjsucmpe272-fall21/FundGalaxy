@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -8,7 +8,6 @@ import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-import axios from "axios";
 
 const styles = {
   cardCategoryWhite: {
@@ -32,16 +31,12 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 const UserProfile = () => {
-  const [personaDetails, setPersonaDetails] = useState(null);
   const classes = useStyles();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5001/investor/details/6199a907f7b3a7df4c314546")
-      .then((res) => setPersonaDetails(res.data));
-  }, []);
+  !JSON.parse(localStorage.getItem("user"))
+    ? (window.location.href = "/login")
+    : null;
 
-  console.log("personaDetails", personaDetails);
   return (
     <div>
       <GridContainer>
