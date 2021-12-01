@@ -12,7 +12,7 @@ class Investor extends React.Component {
 
       <div>
         <div className="main-container">
-          <div className="top-container container">
+          <div className="top-container ">
 
             <div className="profile block">
               <div className="profile-description">
