@@ -23,7 +23,6 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Admin from "layouts/Admin.js";
 import Login from "layouts/Login.js";
 import Register from "layouts/Register.js";
-
 import "assets/css/material-dashboard-react.css?v=1.10.0";
 
 ReactDOM.render(
