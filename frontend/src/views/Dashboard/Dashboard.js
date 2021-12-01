@@ -11,6 +11,8 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 import axios from "axios";
 import LocationIcon from "../../assets/img/location.png";
 import DollarIcon from "../../assets/img/dollar.png";
+import Investor from "views/InvestorProfile/investorProfile";
+import Company from "views/CompanyProfile/companyProfile";
 
 const useStyles = makeStyles(styles);
 
@@ -33,6 +35,17 @@ export default function Dashboard() {
       .then((res) => setData(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  function handleButtonClick(name) {
+    console.log("button clicked " + name);
+    console.log(JSON.parse(localStorage.getItem("user")));
+    console.log(JSON.parse(localStorage.getItem("userType")));
+    //TODO: add route to investor/company
+    if(JSON.parse(localStorage.getItem("userType")) == "investor")
+      <Investor name={name} />;
+    else 
+      <Company name={name}/>
+  }
 
   let dollarUSLocale = Intl.NumberFormat("en-US");
 
@@ -61,9 +74,7 @@ export default function Dashboard() {
                         textDecoration: "underline",
                         cursor: "pointer",
                       }}
-                      onClick={() => {
-                        window.location.href = "#";
-                      }}
+                      onClick={()=>handleButtonClick(key.name)}
                     >
                       {key.name}
                     </b>

@@ -18,4 +18,8 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
   ],
+  rules: {
+    'prettier/prettier': 0,
+    "react/prop-types": "off"
+  },
 };
