@@ -129,9 +129,9 @@ router.post("/api/register", function (req, res) {
   });
 });
 
-// Get Company Details by ID
-router.get("/company/details/:companyid", async (req, res, next) => {
-  Companies.findOne({ _id: req.params.companyid }, (error, doc) => {
+// Get Company Details by Name
+router.get("/company/details/:companyName", async (req, res, next) => {
+  Companies.findOne({ name: req.params.companyName }, (error, doc) => {
     if (error) {
       res.writeHead(500, {
         "Content-Type": "text/plain",
@@ -146,9 +146,9 @@ router.get("/company/details/:companyid", async (req, res, next) => {
   });
 });
 
-// Get Investor Details by ID
-router.get("/investor/details/:investorid", async (req, res, next) => {
-  Investors.findOne({ _id: req.params.investorid }, (error, doc) => {
+// Get Investor Details by Name
+router.get("/investor/details/:investorName", async (req, res, next) => {
+  Investors.findOne({ name: req.params.investorName }, (error, doc) => {
     if (error) {
       res.writeHead(500, {
         "Content-Type": "text/plain",

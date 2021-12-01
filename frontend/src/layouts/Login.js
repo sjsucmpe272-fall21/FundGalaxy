@@ -51,6 +51,7 @@ export default function Login() {
       })
       .then((res) => {
         localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("userType", JSON.stringify(userType));
         window.location.href = "/";
       })
       .catch((err) => {
