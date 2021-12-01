@@ -7,7 +7,6 @@ class Investor extends React.Component {
   }
   render() {
 
-    var name = "spire group";
     return (
 
       <div>
@@ -32,7 +31,7 @@ class Investor extends React.Component {
           </div>
           <div>
 
-            <div className="main-container">
+            <div className="">
 
 
 
@@ -107,7 +106,6 @@ class Investor extends React.Component {
       </div> 
         </div >
     </div >
-      <h1>Hello, {name}</h1>
       </div >
 
     );

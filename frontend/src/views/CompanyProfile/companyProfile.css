@@ -79,7 +79,7 @@ a {
 		text-decoration: underline;
 	}
 
-h1, h2, p, a, span{
+h2, h4, p, a, span{
 	color: #fff;
 }
 	.scnd-font-color {
@@ -396,6 +396,7 @@ h1, h2, p, a, span{
 					}
 						.right-container .social .facebook {
 							background: #3468af;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
@@ -407,6 +408,7 @@ h1, h2, p, a, span{
 							}
 						.right-container .social .twitter {
 							background: #4fc4f6;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
@@ -418,6 +420,7 @@ h1, h2, p, a, span{
 							}
 						.right-container .social .googleplus {
 							background: #e64c65;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
