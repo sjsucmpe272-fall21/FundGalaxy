@@ -11,8 +11,6 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 import axios from "axios";
 import LocationIcon from "../../assets/img/location.png";
 import DollarIcon from "../../assets/img/dollar.png";
-import Investor from "views/InvestorProfile/investorProfile";
-import Company from "views/CompanyProfile/companyProfile";
 
 const useStyles = makeStyles(styles);
 
@@ -36,15 +34,11 @@ export default function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
-  function handleButtonClick(name) {
-    console.log("button clicked " + name);
-    console.log(JSON.parse(localStorage.getItem("user")));
-    console.log(JSON.parse(localStorage.getItem("userType")));
-    //TODO: add route to investor/company
-    if(JSON.parse(localStorage.getItem("userType")) == "investor")
-      <Investor name={name} />;
-    else 
-      <Company name={name}/>
+  function handleButtonClick(e, name) {
+    e.preventDefault();
+    if (JSON.parse(localStorage.getItem("userType")) == "investor")
+      window.location.href = "/admin/company?name=" + name;
+    else window.location.href = "/admin/investor?name=" + name;
   }
 
   let dollarUSLocale = Intl.NumberFormat("en-US");
@@ -65,7 +59,7 @@ export default function Dashboard() {
           data.length === 10 &&
           data.map((key) => (
             <GridItem md={4} key={key.id}>
-              <Card>
+              <Card style={{ height: "180px" }}>
                 <CardBody>
                   <h4 className={classes.cardTitle}>
                     <b
@@ -74,7 +68,7 @@ export default function Dashboard() {
                         textDecoration: "underline",
                         cursor: "pointer",
                       }}
-                      onClick={()=>handleButtonClick(key.name)}
+                      onClick={(e) => handleButtonClick(e, key.name)}
                     >
                       {key.name}
                     </b>

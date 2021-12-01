@@ -46,7 +46,7 @@ const UserProfile = () => {
               <p className={classes.cardCategoryWhite}>Complete your profile</p>
             </CardHeader>
             <CardBody style={{ textAlign: "center" }}>
-              <img src="https://lh3.googleusercontent.com/proxy/XSacVU28X7VkRgsJ6zX5bSmydpZSwZ-1INBxWe68WyYCk1zOei73LbfAKWxVARiw9zZW8bpNM7WYWhwbuBdRIJXJdxkxEADs_jRQCe3Ii1n2PbS7dLbRlIBUuLVcoKVYtA" />
+              <img src="https://theprosrealestateteam.com/wp-content/uploads/2015/11/coming-soon-campaign.png" />
             </CardBody>
           </Card>
         </GridItem>
