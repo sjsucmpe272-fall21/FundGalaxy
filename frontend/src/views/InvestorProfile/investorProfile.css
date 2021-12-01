@@ -79,11 +79,8 @@ a {
 		text-decoration: underline;
 	}
 
-h2, h4, p, a, span{
+h2, h4, p, a{
 	color: #fff;
-}
-label{
-	color: #fff !important;
 }
 	.scnd-font-color {
 		color: #9099b7;

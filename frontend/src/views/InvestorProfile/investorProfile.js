@@ -24,7 +24,7 @@ class Investor extends React.Component {
                   dolor sit amet consectetuer adipiscing Lorem ipsum dolor sit amet consectetuer adipiscing </p>
               </div>
               <div className="bottom">
-                <a href="*link" className="btn"><span>Visit website</span></a>
+                <a href="*link" className="btn"><span style={{color: "#fff"}}>Visit website</span></a>
               </div>
 
             </div>
