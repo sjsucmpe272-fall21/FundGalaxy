@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-import axios from "axios";
 
 const styles = {
   cardCategoryWhite: {
@@ -33,16 +30,12 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 const UserProfile = () => {
-  const [personaDetails, setPersonaDetails] = useState(null);
   const classes = useStyles();
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:5001/investor/details/6199a907f7b3a7df4c314546")
-      .then((res) => setPersonaDetails(res.data));
-  }, []);
+  !JSON.parse(localStorage.getItem("user"))
+    ? (window.location.href = "/login")
+    : null;
 
-  console.log("personaDetails", personaDetails);
   return (
     <div>
       <GridContainer>
@@ -52,80 +45,9 @@ const UserProfile = () => {
               <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
               <p className={classes.cardCategoryWhite}>Complete your profile</p>
             </CardHeader>
-            <CardBody>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={5}>
-                  <CustomInput
-                    labelText="Organization Name"
-                    id="organization-name"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={
-                      {
-                        // disabled: true,
-                      }
-                    }
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                  <CustomInput
-                    labelText="Investor Type"
-                    id="investor-type"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Total Funding"
-                    id="total-funding"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Telephone"
-                    id="telephone"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Address"
-                    id="address"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <CustomInput
-                    labelText="Description"
-                    id="about-me"
-                    formControlProps={{
-                      fullWidth: true,
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 5,
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
+            <CardBody style={{ textAlign: "center" }}>
+              <img src="https://lh3.googleusercontent.com/proxy/XSacVU28X7VkRgsJ6zX5bSmydpZSwZ-1INBxWe68WyYCk1zOei73LbfAKWxVARiw9zZW8bpNM7WYWhwbuBdRIJXJdxkxEADs_jRQCe3Ii1n2PbS7dLbRlIBUuLVcoKVYtA" />
             </CardBody>
-            <div style={{ textAlign: "right", padding: "15px" }}>
-              <Button color="primary">Update Profile</Button>
-            </div>
           </Card>
         </GridItem>
       </GridContainer>
