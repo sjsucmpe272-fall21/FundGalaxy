@@ -24,6 +24,7 @@ import Admin from "layouts/Admin.js";
 import Login from "layouts/Login.js";
 import Register from "layouts/Register.js";
 import Investor from "views/InvestorProfile/investorProfile.js"
+import Company from "views/CompanyProfile/companyProfile";
 
 import "assets/css/material-dashboard-react.css?v=1.10.0";
 
@@ -34,6 +35,7 @@ ReactDOM.render(
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/investor" component={Investor} />
+      <Route path="/company" component={Company} />
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </BrowserRouter>,

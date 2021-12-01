@@ -79,7 +79,7 @@ a {
 		text-decoration: underline;
 	}
 
-h1, h2, p, a, span{
+h2, h4, p, a{
 	color: #fff;
 }
 	.scnd-font-color {
@@ -89,7 +89,7 @@ h1, h2, p, a, span{
 .input-container {
 	position: relative;
 }
-	input[type=text]{
+	.input-container{
 		width: 260px;
 		height: 50px;
 		margin-left: 20px;
@@ -100,19 +100,19 @@ h1, h2, p, a, span{
 		border: solid 1px #1f253d;
 		border-radius: 5px;		
 	}
-		input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
+		.input-container::-webkit-input-placeholder { /* WebKit browsers */
 	   		color: #fff;	   		
 	   	}
-		input[type=text]:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
+		.input-container:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
 	   		color: #fff;	   
 	   	}
-		input[type=text]::-moz-input-placeholder { /* Mozilla Firefox 19+ */
+		.input-container::-moz-input-placeholder { /* Mozilla Firefox 19+ */
 	   		color: #fff;
 	   	}
-		input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */
+		.input-container:-ms-input-placeholder { /* Internet Explorer 10+ */
 	   		color: #fff;	   	
 	   	}
-	   	input[type=text]:focus {
+	   	.input-container:focus {
 	   		outline: none; /* removes the default orange border when focus */
 	   		border: 1px solid #11a8ab;
 	   	}
@@ -344,6 +344,7 @@ h1, h2, p, a, span{
 					line-height: 60px;
 					display: block;
 					border-bottom: 1px solid #1f253d;
+					color: #fff;
 					-webkit-transition: background .2s;
 					transition: background .2s;
 				}
@@ -369,7 +370,7 @@ h1, h2, p, a, span{
            
           .people-li {
             font-size: 15px;
-            color: white;
+            color: black;
             padding: 5px 0 2px 5px;
             border-bottom: 1px solid #ccc;
           }
@@ -396,6 +397,7 @@ h1, h2, p, a, span{
 					}
 						.right-container .social .facebook {
 							background: #3468af;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
@@ -407,6 +409,7 @@ h1, h2, p, a, span{
 							}
 						.right-container .social .twitter {
 							background: #4fc4f6;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
@@ -418,6 +421,7 @@ h1, h2, p, a, span{
 							}
 						.right-container .social .googleplus {
 							background: #e64c65;
+							color: #fff;
 							-webkit-transition: background .3s;
 							transition: background .3s;
 						}
