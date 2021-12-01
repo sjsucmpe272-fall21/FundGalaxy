@@ -86,6 +86,37 @@ h2, h4, p, a, span{
 		color: #9099b7;
 	}
 
+.input-container {
+	position: relative;
+}
+	.input-container{
+		width: 260px;
+		height: 50px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		padding-left: 45px;
+		background: #50597b;
+		color: #fff;
+		border: solid 1px #1f253d;
+		border-radius: 5px;		
+	}
+		.input-container::-webkit-input-placeholder { /* WebKit browsers */
+	   		color: #fff;	   		
+	   	}
+		.input-container:-moz-input-placeholder { /* Mozilla Firefox 4 to 18 */
+	   		color: #fff;	   
+	   	}
+		.input-container::-moz-input-placeholder { /* Mozilla Firefox 19+ */
+	   		color: #fff;
+	   	}
+		.input-container:-ms-input-placeholder { /* Internet Explorer 10+ */
+	   		color: #fff;	   	
+	   	}
+	   	.input-container:focus {
+	   		outline: none; /* removes the default orange border when focus */
+	   		border: 1px solid #11a8ab;
+	   	}
+
 .horizontal-list {
 	margin: 0;
 	padding: 0;
@@ -313,6 +344,7 @@ h2, h4, p, a, span{
 					line-height: 60px;
 					display: block;
 					border-bottom: 1px solid #1f253d;
+					color: #fff;
 					-webkit-transition: background .2s;
 					transition: background .2s;
 				}
@@ -338,7 +370,7 @@ h2, h4, p, a, span{
            
           .people-li {
             font-size: 15px;
-            color: white;
+            color: black;
             padding: 5px 0 2px 5px;
             border-bottom: 1px solid #ccc;
           }
