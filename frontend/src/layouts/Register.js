@@ -51,7 +51,7 @@ export default function Register() {
     data.password = password;
     data.usertype = userType;
     axios
-      .post("http://" + REACT_APP_HOST + ":5001/api/register", data)
+      .post("http://" + process.env.REACT_APP_HOST + ":5001/api/register", data)
       .then((res) => {
         if (res.data === "Entity registered") {
           setSuccess(true);
