@@ -16,7 +16,6 @@ const Investor = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(details);
   return (
     <div>
       <div className="main-container">
@@ -25,7 +24,14 @@ const Investor = () => {
             <div className="top-container ">
               <div className="profile block">
                 <div className="profile-description">
-                  <h1 className="user-name">{details.name}</h1>
+                  <h1
+                    className="user-name"
+                    style={{
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    {details.name}
+                  </h1>
                   <h2 className="user-name">
                     <span>Domain: </span>
                     {details.investorType}
@@ -132,7 +138,9 @@ const Investor = () => {
             </div>
           </>
         ) : (
-          <div style={{ textAlign: "center", color: "#FFF", fontSize: "50px" }}>
+          <div
+            style={{ textAlign: "center", color: "black", fontSize: "50px" }}
+          >
             No Data Found
           </div>
         )}
