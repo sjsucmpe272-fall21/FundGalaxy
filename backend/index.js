@@ -6,7 +6,7 @@ app.use(express.json());
 
 //use cors to allow cross origin resource sharing
 const cors = require("cors");
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors());
 
 const apiRouter = require("./routes/routes");
 app.use("/", apiRouter);
