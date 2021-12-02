@@ -20,6 +20,8 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
+import Investor from "views/InvestorProfile/investorProfile.js";
+import Company from "views/CompanyProfile/companyProfile";
 
 const dashboardRoutes = [
   {
@@ -36,6 +38,22 @@ const dashboardRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
+    layout: "/admin",
+  },
+  {
+    path: "/investor",
+    name: "Investor Details",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: Investor,
+    layout: "/admin",
+  },
+  {
+    path: "/company",
+    name: "Company Details",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: Company,
     layout: "/admin",
   },
 ];
