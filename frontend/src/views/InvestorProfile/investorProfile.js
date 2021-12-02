@@ -11,7 +11,7 @@ const Investor = () => {
   useEffect(() => {
     const name = new URLSearchParams(search).get("name");
     axios
-      .get("http://localhost:5001/investor/details/" + name)
+      .get("http://" + REACT_APP_HOST + ":5001/investor/details/" + name)
       .then((res) => setDetails(res.data))
       .catch((err) => console.log(err));
   }, []);

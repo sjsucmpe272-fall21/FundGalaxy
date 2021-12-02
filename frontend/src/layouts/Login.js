@@ -44,7 +44,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5001/api/authenticate", {
+      .post("http://" + REACT_APP_HOST + ":5001/api/authenticate", {
         usertype: userType,
         email: email,
         password: password,

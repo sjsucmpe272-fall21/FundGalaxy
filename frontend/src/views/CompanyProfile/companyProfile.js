@@ -11,7 +11,9 @@ const Company = () => {
   useEffect(() => {
     const name = new URLSearchParams(search).get("name");
     axios
-      .get("http://localhost:5001/company/details/" + name)
+      .get(
+        "http://" + process.env.REACT_APP_HOST + ":5001/company/details/" + name
+      )
       .then((res) => setDetails(res.data))
       .catch((err) => console.log(err));
   }, []);
